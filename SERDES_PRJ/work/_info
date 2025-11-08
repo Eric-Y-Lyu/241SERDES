@@ -1,0 +1,118 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/lyuyu/Documents/QuartusPrime/ECE241/lab5/designFiles/part3/ModelSim
+vdownCount10
+Z0 !s110 1762568946
+!i10b 1
+!s100 ZI_VQF_YYK?:7mHAPon2c2
+IY6fa:;g^VYLXZH@enD]IW0
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dC:/Users/lyuyu/Documents/QuartusPrime/ECE241/SERDES_PRJ
+w1762307492
+8C:\Users\lyuyu\Documents\QuartusPrime\ECE241\SERDES_PRJ\downCount10.v
+FC:\Users\lyuyu\Documents\QuartusPrime\ECE241\SERDES_PRJ\downCount10.v
+L0 3
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1762568946.000000
+!s107 C:\Users\lyuyu\Documents\QuartusPrime\ECE241\SERDES_PRJ\downCount10.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:\Users\lyuyu\Documents\QuartusPrime\ECE241\SERDES_PRJ\downCount10.v|
+!i113 1
+Z5 o-work work
+Z6 tCvgOpt 0
+ndown@count10
+vencoder
+R0
+!i10b 1
+!s100 8?3d2@ZYPl@mjmfL[ZD8J1
+I8JTMCcDe__PJzonDU4XQP2
+R1
+R2
+w1762314460
+8C:\Users\lyuyu\Documents\QuartusPrime\ECE241\SERDES_PRJ\encoderDecoder.v
+FC:\Users\lyuyu\Documents\QuartusPrime\ECE241\SERDES_PRJ\encoderDecoder.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:\Users\lyuyu\Documents\QuartusPrime\ECE241\SERDES_PRJ\encoderDecoder.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:\Users\lyuyu\Documents\QuartusPrime\ECE241\SERDES_PRJ\encoderDecoder.v|
+!i113 1
+R5
+R6
+vshiftReg10
+R0
+!i10b 1
+!s100 @HQ_S@0OL1g?NcV]ec<bY2
+I?bfCmYm4n28<7Hb>je@if0
+R1
+R2
+w1762568928
+8C:\Users\lyuyu\Documents\QuartusPrime\ECE241\SERDES_PRJ\shiftReg10.v
+FC:\Users\lyuyu\Documents\QuartusPrime\ECE241\SERDES_PRJ\shiftReg10.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:\Users\lyuyu\Documents\QuartusPrime\ECE241\SERDES_PRJ\shiftReg10.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:\Users\lyuyu\Documents\QuartusPrime\ECE241\SERDES_PRJ\shiftReg10.v|
+!i113 1
+R5
+R6
+nshift@reg10
+vtestbench
+R0
+!i10b 1
+!s100 9`dC=<e?Jf`FVBF;H2N_l1
+I9_YL6VGe3O9J?h6;^>fjk0
+R1
+R2
+w1762305390
+8C:\Users\lyuyu\Documents\QuartusPrime\ECE241\SERDES_PRJ\testbench.v
+FC:\Users\lyuyu\Documents\QuartusPrime\ECE241\SERDES_PRJ\testbench.v
+L0 3
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:\Users\lyuyu\Documents\QuartusPrime\ECE241\SERDES_PRJ\testbench.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:\Users\lyuyu\Documents\QuartusPrime\ECE241\SERDES_PRJ\testbench.v|
+!i113 1
+R5
+R6
+vTX
+R0
+!i10b 1
+!s100 3YBZzClMcelWGQ[d094C>3
+IlaEb?YoAVGnY7gb@T^5Y80
+R1
+R2
+w1762308267
+8C:\Users\lyuyu\Documents\QuartusPrime\ECE241\SERDES_PRJ\TX.v
+FC:\Users\lyuyu\Documents\QuartusPrime\ECE241\SERDES_PRJ\TX.v
+L0 2
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:\Users\lyuyu\Documents\QuartusPrime\ECE241\SERDES_PRJ\TX.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:\Users\lyuyu\Documents\QuartusPrime\ECE241\SERDES_PRJ\TX.v|
+!i113 1
+R5
+R6
+n@t@x
