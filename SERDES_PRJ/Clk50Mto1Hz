@@ -1,0 +1,26 @@
+//code from lab4part4
+module Clk50Mto1Hz (Clk, ResetN, tick);
+	//need 26 bit counter
+	input Clk, ResetN;
+	output reg tick;
+	reg [25:0] Q;
+
+	always @ (posedge Clk, negedge ResetN)
+		begin
+		if (ResetN == 0)
+		begin
+			Q <= 26'b0;
+			tick <= 1'b0;
+		end
+		else if (Q == 26'd49999999)
+		begin
+			Q <= 26'b0;
+			tick <= 1'b1;
+		end
+		else
+		begin
+			Q <= Q + 1;
+			tick <= 1'b0;
+		end
+		end
+endmodule
