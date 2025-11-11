@@ -16,3 +16,4 @@ module shiftReg10 (Clk, D, Q, enable, load, resetN, loadData, data);
 	
 	assign Q = data[0];
 endmodule
+

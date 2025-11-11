@@ -33,5 +33,7 @@ module testbench ( );
 
 	TX U1 (Pin, Sout, resetN, send, CLOCK_50, err);
 
+	RX U2(SerialIn, clkTX, clkRX, resetN, vgaData, err);
+
 endmodule
 	
