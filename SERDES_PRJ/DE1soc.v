@@ -5,7 +5,9 @@ module DE1soc (SW, LEDR, KEY, CLOCK_50);
 	output [9:0] LEDR;
 	input CLOCK_50;
 
-    wire Sout, resetN, send, errTX, errRX. invalidData, wrongRD;
+    wire Sout, resetN, send, errTX, errRX, invalidData, wrongRD;
+
+    wire [7:0] vgaData;
 
     assign resetN = KEY[0];
     assign send = KEY [1];
