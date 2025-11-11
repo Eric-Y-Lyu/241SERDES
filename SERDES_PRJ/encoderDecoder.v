@@ -59,22 +59,18 @@ module encoder (dataIn, dataOut, RDin, commEn, RDout, err);
 	if ((sumMid == 3'b010))
 		begin
 		RDmid = RDin;
-		err = 1'b0;
 		end
 	else if ((sumMid == 3'b011)&(~RDin))
 		begin
 		RDmid = 1'b1;
-		err = 1'b0;
 		end
 	else if ((sumMid == 3'b001)&(RDin))
 		begin
 		RDmid = 1'b0;
-		err = 1'b0;
 		end
 	else 
 		begin
 		RDmid = RDin;
-		err = 1'b1;
 		end
 	end
 
