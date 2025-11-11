@@ -155,11 +155,9 @@ module VGA_FSM (dataFromMem, MCC, resetN, Clk50, VGA_R, VGA_G, VGA_B, VGA_HS, VG
 endmodule
 
 
-module print8x8 (dataFromMem, rowOfChar, pixelInRow, inX, inY, coordX, coordY, Clk50, beginPrint, donePrint, resetN
+module print8x8 (dataFromMem, inX, inY, coordX, coordY, Clk50, beginPrint, donePrint, resetN
                 VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_CLK, VGA_R, VGA_G, VGA_B;);
     input [7:0] dataFromMem;
-    input [2:0] rowOfChar;
-    output [7:0] pixelInRow;
     input [9:0] inX,
     input [8:0] inY;
     reg [9:0] coordX;
@@ -169,7 +167,9 @@ module print8x8 (dataFromMem, rowOfChar, pixelInRow, inX, inY, coordX, coordY, C
     output reg donePrint;
     input Clk50;
 
-    reg firstCycle, rowOfChar;
+    wire [7:0] pixelInRow;
+    reg firstCycle, write;
+    reg [2:0] rowOfChar;
 
     output VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_CLK
     output [7:0] VGA_R, VGA_G, VGA_B;
@@ -194,10 +194,10 @@ module print8x8 (dataFromMem, rowOfChar, pixelInRow, inX, inY, coordX, coordY, C
     always @ (posedge Clk50)
     begin
         if (donePrint == 0) begin
-            if(firstCycle ==1) begin
+            if(firstCycle == 1) begin
                 coordX <= inX; //8 pixels per char, 60 chars per row, 10 pixel offset
                 coordY <= inY; //8 pixels per char height, 8 rows per char, 20 pixel offset (verilog / rounds down)
-                rowOfChar = 0;
+                rowOfChar <= 0;
                 firstCycle <= 0;
             end
             else begin
