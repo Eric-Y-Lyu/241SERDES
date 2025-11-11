@@ -210,7 +210,7 @@ module decoder (dataIn, dataOut, RDin, comma, RDout, RDcheck, validData);
 	output reg RDcheck, RDout, validData, comma;
 	wire [3:0] sum; 
 	reg [2:0] D3b;
-	reg [3:0] D5b; 
+	reg [4:0] D5b; 
 
 	
 	always @ (*)

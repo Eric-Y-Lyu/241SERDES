@@ -20,10 +20,11 @@ module testbenchRX ( );
 	initial begin
         resetN <= 1'b0;
 
-	Pin <= 8'b00000000;
+	Pin <= 8'b00001111;
 	send <= 1'b0;
         #10 resetN <= 1'b1;
     #1000 send <= 1'b1;
+    #200 Pin <= 8'b11110000;
 	end // initial
 
 

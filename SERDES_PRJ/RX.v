@@ -23,6 +23,8 @@ module RX(SerialIn, clkTX, clkRX, resetN, vgaData, err, invalidData, wrongRD);
     //generate a pulse every 10 clk cycles, but will get reset when a neg comma is detected in state A
     downCount10RX DC10_1 (clk, resetN, count10en, tick10);
 
+    downCount9RX DC9_1 (clk, resetN, count9en, tick9);
+
     //convert the serial data to parallel data
     shiftReg10 sr (clk, SerialIn, Q, 1'b1, 1'b0, resetN, 10'b0, data);
     
@@ -51,25 +53,32 @@ module RX(SerialIn, clkTX, clkRX, resetN, vgaData, err, invalidData, wrongRD);
         case (state)
         A:  if(ncomma) //State reciever once negative comma is detected
             begin
-            state <= Ready_;
+            state <= B;
             end
             else state <= A;
-        Ready_: state <= B; //ready to read
+        //Ready_: if (tick10) state <= B; //ready to read
         B:  if (dataValid&tick10) state <= D; //check if data is valid, comma, or if it has consistent RD
             else if (comma&tick10) state <= C;
             else if (~RDcheck&tick10) state <= F;
-            else state <= E;
-        C:  if (dataValid&tick10) state <= D; //gets comma, then checks next data
-            else if (comma&tick10) state <= C;
-            else if (~RDcheck&tick10) state <= F;
-            else state <= E;
-        D:  
+            else if (tick10) state <= E;
+        C:  if (dataValid&tick10) 
             begin
-            vgaData <= dataOut;                 //Latch the valid Data for printing
-            if (dataValid&tick10) state <= D;
+            state <= D; //gets comma, then checks next data
+            vgaData <= dataOut;
+            end
             else if (comma&tick10) state <= C;
             else if (~RDcheck&tick10) state <= F;
-            else state <= E;
+            else if (tick10) state <= E;
+        D:  
+            begin                 
+            if (dataValid&tick10) 
+            begin
+            state <= D;
+            vgaData <= dataOut;
+            end
+            else if (comma&tick10) state <= C;
+            else if (~RDcheck&tick10) state <= F;
+            else if (tick10) state <= E;
             end
         E:  state <= B; //invalid data
         F:  state <= B; //wrong RD
@@ -78,8 +87,9 @@ module RX(SerialIn, clkTX, clkRX, resetN, vgaData, err, invalidData, wrongRD);
     end
 
     assign invalidData = (state == E);
-    assign wrongRD = (state == F);
-    assign count10en = ((state == A)&ncomma)| (state == Ready_) | (state == B) | (state == C) | (state == D) | (state == E) | (state == F);
+    assign wrongRD = (state == C) & ~RDcheck;
+    assign count10en = (tick9) | (state == B) | (state == C) | (state == D) | (state == E) | (state == F);
+    assign count9en = (state == A)&ncomma;
 
     assign err = invalidData | wrongRD;
 
