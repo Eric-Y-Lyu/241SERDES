@@ -15,7 +15,7 @@ module RX(SerialIn, clkTX, clkRX, resetN, vgaData, err, invalidData, wrongRD);
     reg [2:0] state;
 
 
-    parameter A = 3'b000, B = 3'b001, C = 3'b010, D = 3'b011, E = 3'b100, Ready_ = 3'b101, F = 3'b110;
+    parameter A = 3'b000, B = 3'b001, C = 3'b010, D = 3'b011, E = 3'b100, F = 3'b101;
     // A = reset, B = receive data, C = recieve commas, D = valid data, E = invalidData, F = wrong RD, Ready = ready to recieve data
     assign clk = clkTX & clkRX; // sync the clocks
 
