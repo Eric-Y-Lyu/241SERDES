@@ -1,14 +1,14 @@
 //receiver module in a SERDES system
 
 
-module RX(SerialIn, clkTX, clkRX, resetN, vgaData, err, invalidData, wrongRD);
+module RX(SerialIn, clkTX, clkRX, resetN, vgaData, err, invalidData, wrongRD, comma);
 
     input SerialIn, clkTX, clkRX, resetN; //clkTX - from TX, clkRX - local clock
     output reg [7:0] vgaData;
     output err;
     output invalidData;
-    output wrongRD;
-    wire tick10, RDout, Q, clk, comma, ncomma, RDright, dataValid, count10en;
+    output wrongRD, comma;
+    wire tick10, RDout, Q, clk, ncomma, RDright, dataValid, count10en;
     reg RDin, RDcheck;
     wire [9:0] data;
     wire [7:0] dataOut;
