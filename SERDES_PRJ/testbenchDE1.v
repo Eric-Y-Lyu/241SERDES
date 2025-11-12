@@ -24,7 +24,7 @@ module testbenchDE1 ( );
 	SW = 8'b10101001;
 	#100 KEY[0] = 1'b1;
 	#50 KEY[1] = 1'b1;
-	
+	#200 KEY[1] = 1'b0;
 	end // initial
 
 

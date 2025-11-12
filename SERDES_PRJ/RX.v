@@ -8,14 +8,14 @@ module RX(SerialIn, clkTX, clkRX, resetN, vgaData, err, invalidData, wrongRD);
     output err;
     output invalidData;
     output wrongRD;
-    wire tick10, RDout, Q, clk, comma, ncomma, RDcheck, dataValid, count10en;
-    reg RDin;
+    wire tick10, RDout, Q, clk, comma, ncomma, RDright, dataValid, count10en;
+    reg RDin, RDcheck;
     wire [9:0] data;
     wire [7:0] dataOut;
     reg [2:0] state;
 
 
-    parameter A = 3'b000, B = 3'b001, C = 3'b010, D = 3'b011, E = 3'b100, Ready_ = 3'b101, F = 3'b110;
+    parameter A = 3'b000, B = 3'b001, C = 3'b010, D = 3'b011, E = 3'b100, F = 3'b101;
     // A = reset, B = receive data, C = recieve commas, D = valid data, E = invalidData, F = wrong RD, Ready = ready to recieve data
     assign clk = clkTX & clkRX; // sync the clocks
 
@@ -29,7 +29,10 @@ module RX(SerialIn, clkTX, clkRX, resetN, vgaData, err, invalidData, wrongRD);
     shiftReg10 sr (clk, SerialIn, Q, 1'b1, 1'b0, resetN, 10'b0, data);
     
     //decode the data from 10b to 8b
-    decoder d1 (data, dataOut, RDin, comma, RDout, RDcheck, dataValid);
+    decoder d1 (data, dataOut, RDin, comma, RDout, RDright, dataValid);
+    always @ (posedge tick10, negedge resetN)
+        if(RDright) RDcheck = 1'b1;
+        else RDcheck = 1'b0; 
     always @ (posedge tick10, negedge resetN) 
         if (~resetN)
             RDin <= 1'b0;
@@ -87,7 +90,7 @@ module RX(SerialIn, clkTX, clkRX, resetN, vgaData, err, invalidData, wrongRD);
     end
 
     assign invalidData = (state == E);
-    assign wrongRD = (state == C) & ~RDcheck;
+    assign wrongRD = (state == F);
     assign count10en = (tick9) | (state == B) | (state == C) | (state == D) | (state == E) | (state == F);
     assign count9en = (state == A)&ncomma;
 
