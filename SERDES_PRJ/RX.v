@@ -30,7 +30,7 @@ module RX(SerialIn, clkTX, clkRX, resetN, vgaData, err, invalidData, wrongRD, co
     
     //decode the data from 10b to 8b
     decoder d1 (data, dataOut, RDin, comma, RDout, RDright, dataValid);
-    always @ (posedge tick10, negedge resetN)
+    always @ (posedge tick10)
         if(RDright) RDcheck = 1'b1;
         else RDcheck = 1'b0; 
     always @ (posedge tick10, negedge resetN) 
