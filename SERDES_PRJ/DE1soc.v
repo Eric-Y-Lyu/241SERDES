@@ -11,7 +11,7 @@ module DE1soc (SW, LEDR, KEY, CLOCK_50, GPIO_0, GPIO_1);
     wire [7:0] vgaData;
 
     assign resetN = KEY[0];
-    assign send = KEY [1];
+    assign send = ~KEY [1];
 
     assign LEDR[9] = errTX|errRX;
     assign LEDR[8] = comma;
