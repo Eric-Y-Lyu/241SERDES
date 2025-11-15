@@ -1,0 +1,32 @@
+C:/Users/lyuyu/Desktop/241SERDES/SERDES_PRJ/top.v {1 {vlog -work work -stats=none C:/Users/lyuyu/Desktop/241SERDES/SERDES_PRJ/top.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+
+} {} {}} C:/Users/lyuyu/Desktop/241SERDES/SERDES_PRJ/TX.v {1 {vlog -work work -stats=none C:/Users/lyuyu/Desktop/241SERDES/SERDES_PRJ/TX.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module TX
+
+Top level modules:
+	TX
+
+} {} {}} C:/Users/lyuyu/Desktop/241SERDES/SERDES_PRJ/downCoun10RX.v {1 {vlog -work work -stats=none C:/Users/lyuyu/Desktop/241SERDES/SERDES_PRJ/downCoun10RX.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module downCount10RX
+
+Top level modules:
+	downCount10RX
+
+} {} {}} C:/Users/lyuyu/Desktop/241SERDES/SERDES_PRJ/shiftReg10.v {1 {vlog -work work -stats=none C:/Users/lyuyu/Desktop/241SERDES/SERDES_PRJ/shiftReg10.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module shiftReg10
+
+Top level modules:
+	shiftReg10
+
+} {} {}} C:/Users/lyuyu/Desktop/241SERDES/SERDES_PRJ/downCount10.v {1 {vlog -work work -stats=none C:/Users/lyuyu/Desktop/241SERDES/SERDES_PRJ/downCount10.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module downCount10
+
+Top level modules:
+	downCount10
+
+} {} {}}
